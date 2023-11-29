@@ -4,8 +4,8 @@ import {
   combineLatest,
   debounceTime,
   delay,
-  distinctUntilChanged, map,
-  Observable,
+  distinctUntilChanged, filter, map,
+  Observable, of,
   startWith,
   Subject,
   switchMap
@@ -34,15 +34,20 @@ export class AppComponent {
             [inputSource,
               this.notifier$.pipe(startWith(null))]
           ).pipe(
-            map(([sourceValue]) => sourceValue),
+            map(([sourceValue]) => sourceValue)
           ),
         switchMap(
-          search => this.productService.getProductsByName(search)))
+          search =>  {
+            if (search) {
+              return this.productService.getProductsByName(search)
+            } else {
+              return of([])
+            }
+          }))
   }
   onSearchChanged(search: string) {
     this.searchPattern$.next(search)
   }
-
   refresh() {
     this.notifier$.next(undefined)
   }

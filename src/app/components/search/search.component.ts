@@ -17,6 +17,6 @@ export class SearchComponent {
     this.search
       .valueChanges
       .subscribe(
-        value => value && this.onSearch.emit(value))
+        value => this.onSearch.emit(value!))
   }
 }
