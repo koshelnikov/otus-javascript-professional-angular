@@ -1,0 +1,25 @@
+label {
+  display: flex;
+  align-items: center;
+}
+
+input:focus{
+  outline: 1px solid blue;
+}
+.ng-valid {
+  outline: 1px solid green;
+}
+
+.ng-dirty.ng-invalid,
+.ng-invalid.ng-dirty,{
+  outline: 1px solid red;
+}
+
+svg {
+  height: 20px;
+}
+
+.error-message {
+  color: red;
+}
+

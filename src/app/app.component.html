@@ -1,6 +1,13 @@
+<h2>Search products</h2>
 <app-search (search)="this.onSearchChanged($event)"/>
 <button (click)="refresh()">Refresh</button>
 
 <div *ngFor="let product of products$ | async">
   name: {{product.name}} price: {{product.price}}
 </div>
+
+<br/>
+<br/>
+
+<h2>Please sign up to find magic...</h2>
+<app-sign-up/>
