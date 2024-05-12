@@ -9,6 +9,16 @@
       "id": 2,
       "name": "Toy",
       "price": 2.5
+    },
+    {
+      "id": 3,
+      "name": "Car blue",
+      "price": 4.5
+    },
+    {
+      "id": 4,
+      "name": "Car red",
+      "price": 1.5
     }
   ]
 }

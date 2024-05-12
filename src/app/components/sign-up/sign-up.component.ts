@@ -17,13 +17,16 @@ export class SignUpComponent {
     asyncValidators: (model) =>
       model.valueChanges
         .pipe(
+          tap(() => this.loader$.next(true)),
+
           debounceTime(500),
           distinctUntilChanged(),
           filter(value => !!value),
-          tap(() => this.loader$.next(true)),
           switchMap(value => this.userRegistrationService
             .isLoginFree(value)),
+
           tap(() => this.loader$.next(false)),
+
           map(value =>
             value
               ? null

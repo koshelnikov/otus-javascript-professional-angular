@@ -10,7 +10,6 @@ export class UserRegistrationService {
   constructor() { }
 
   isLoginFree(login: string): Observable<boolean> {
-    console.log('isLoginFree request');
     return fromPromise(new Promise(resolve => {
       setTimeout(() => {
         resolve(Math.random() < 0.5)
